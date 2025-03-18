@@ -1,0 +1,13 @@
+boto3>=1.26.0
+pymongo>=4.5.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+terraform-local>=0.2.1
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+fastapi>=0.100.0
+uvicorn>=0.22.0
+python-jose>=3.3.0
+pytest>=7.4.0
+black>=23.3.0
+flake8>=6.0.0 

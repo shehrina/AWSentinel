@@ -1,0 +1,72 @@
+# AWS Configuration
+aws_region = "us-east-1"
+
+# GCP Configuration
+gcp_project_id = "your-gcp-project-id"
+gcp_region     = "us-central1"
+gcp_kms_key    = "projects/your-project/locations/global/keyRings/your-keyring/cryptoKeys/your-key"
+
+# Resources to secure
+s3_buckets_to_secure = [
+  "example-bucket-1",
+  "example-bucket-2"
+]
+
+rds_clusters_to_secure = [
+  "example-rds-cluster"
+]
+
+gcs_buckets_to_secure = [
+  "example-gcs-bucket"
+]
+
+cloudsql_instances_to_secure = [
+  "example-cloudsql-instance"
+]
+
+# Security group restrictions
+security_groups_to_restrict = {
+  "example-sg" = {
+    port              = 22
+    allowed_cidrs     = ["10.0.0.0/8"]
+    security_group_id = "sg-12345"
+  }
+}
+
+# Security settings
+enable_audit_logging = true
+log_retention_days   = 90
+enforce_encryption   = true
+
+allowed_ip_ranges = [
+  "10.0.0.0/8",
+  "172.16.0.0/12"
+]
+
+tags = {
+  Environment = "production"
+  Managed_by  = "terraform"
+  Purpose     = "security"
+}
+
+# Scanner Deployment Configuration
+scanner_resource_prefix = "cloud-security"
+scanner_instance_type   = "t3.micro"
+scanner_allow_ssh       = false
+scanner_ssh_allowed_cidrs = [
+  "10.0.0.0/8"
+]
+scanner_cron_schedule    = "0 0 * * *"
+scanner_cron_expression  = "0 0 * * ? *"
+scanner_enable_scheduled_scans = true
+
+# Scanner Notification Settings
+scanner_alert_recipients = [
+  "security-alerts@example.com",
+  "admin@example.com"
+]
+scanner_smtp_host     = "smtp.gmail.com"
+scanner_smtp_port     = "587"
+scanner_smtp_username = "alerts@example.com"
+scanner_smtp_password = "app-password-here"
+scanner_slack_webhook_url = "https://hooks.slack.com/services/XXXXXXXXX/YYYYYYYYY/ZZZZZZZZZZZZZZZZZZZZZZZZ" 
